@@ -22,5 +22,12 @@ namespace ConsoleRPG
 
             return str;
         }
+
+        public static String GetInput(String str)
+        {
+            str = String.Format(" - {0} :", str);
+
+            return str;
+        }
     }
 }
