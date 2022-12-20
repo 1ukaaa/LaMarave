@@ -1,10 +1,14 @@
+using System.Collections;
+
 namespace ConsoleRPG
 {
     class StateGame : State
     {
+        ArrayList characterList;
 
-        public StateGame(Stack<State> states) : base(states)
+        public StateGame(Stack<State> states, ArrayList character_List) : base(states)
         {
+            this.characterList = character_List;
         }
 
         public void ProcessInput(int input)
@@ -12,10 +16,10 @@ namespace ConsoleRPG
             switch (input)
             {
                 case 1:
-                    this.states.Push(new StateGame(this.states));
+                    this.states.Push(new StateGame(this.states,this.characterList));
                     break;
                 case 2:
-                    this.states.Push(new StateCharacterCreator(this.states));
+                    this.states.Push(new StateCharacterCreator(this.states,this.characterList));
                     break;
                 case -1:
                     this.endGame = true;

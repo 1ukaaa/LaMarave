@@ -1,9 +1,13 @@
+using System.Collections;
+
 namespace ConsoleRPG
 {
     class StateCharacterCreator : State
     {
-        public StateCharacterCreator(Stack<State> states) : base(states)
+        ArrayList characterList;
+        public StateCharacterCreator(Stack<State> states, ArrayList character_List) : base(states)
         {
+            this.characterList = character_List;
         }
 
         public void ProcessInput(int input)
@@ -11,7 +15,12 @@ namespace ConsoleRPG
             switch (input)
             {
                 case 1:
-                    
+                    Console.Write(Gui.Announcement("Character Created"));
+                    this.characterList.Add(new Character("UnderTaker"));
+                    this.characterList.Add(new Character("John Cena"));
+                    this.characterList.Add(new Character("The Rock"));
+                    this.characterList.Add(new Character("Triple H"));
+                    break;
                 case -1:
                     this.endGame = true;
                     break;

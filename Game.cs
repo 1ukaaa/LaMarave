@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace ConsoleRPG
 {
     class Game
@@ -12,6 +14,7 @@ namespace ConsoleRPG
         }
         
        private Stack<State> states;
+       private ArrayList characterList;
 
         // Private Methods
 
@@ -21,17 +24,22 @@ namespace ConsoleRPG
         
         }
 
+        private void InitCharacterList()
+        {
+            this.characterList = new ArrayList();
+        }
         private void InitStates()
         {
             this.states = new Stack<State>();
 
-            this.states.Push(new StateMainMenu(this.states));
+            this.states.Push(new StateMainMenu(this.states,this.characterList));
         }
 
         // Constructor and Destructor
         public Game()
         {
             this.InitVariables();
+            this.InitCharacterList();
             this.InitStates();
         }
 
