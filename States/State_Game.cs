@@ -2,9 +2,9 @@ namespace ConsoleRPG
 {
     class StateGame : State
     {
+
         public StateGame(Stack<State> states) : base(states)
         {
-
         }
 
         override public void Update()
