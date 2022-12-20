@@ -13,8 +13,8 @@ namespace ConsoleRPG
             set { endGame = value; }
         }
         
-       private Stack<State> states;
-       private ArrayList characterList;
+       private Stack<State>? states;
+       private ArrayList? characterList;
 
         // Private Methods
 
@@ -32,7 +32,7 @@ namespace ConsoleRPG
         {
             this.states = new Stack<State>();
 
-            this.states.Push(new StateMainMenu(this.states,this.characterList));
+            this.states.Push(new StateMainMenu(this.states,this.characterList!));
         }
 
         // Constructor and Destructor
@@ -45,7 +45,7 @@ namespace ConsoleRPG
 
         public void Run()
         {
-            while (this.states.Count > 0)
+            while (this.states!.Count > 0)
             {
                 this.states.Peek().Update();
                 if (this.states.Peek().RequestEndGame())
