@@ -1,14 +1,12 @@
-using System.Collections;
-
 namespace ConsoleRPG
 {
     class StateGame : State
     {
-        ArrayList characterList;
+        protected Character character;
 
-        public StateGame(Stack<State> states, ArrayList character_List) : base(states)
+        public StateGame(Stack<State> states, Character activeCharacter) : base(states)
         {
-            this.characterList = character_List;
+            this.character = activeCharacter;
         }
 
         public void ProcessInput(int input)
@@ -16,10 +14,7 @@ namespace ConsoleRPG
             switch (input)
             {
                 case 1:
-                    this.states.Push(new StateGame(this.states,this.characterList));
-                    break;
-                case 2:
-                    this.states.Push(new StateCharacterCreator(this.states,this.characterList));
+                    Console.WriteLine("Name: " + this.character.ToString());
                     break;
                 case -1:
                     this.endGame = true;
@@ -30,7 +25,7 @@ namespace ConsoleRPG
         override public void Update()
         {
             Gui.MenuTitle("Game State");
-            Gui.MenuOption(1, "Create Character");
+            Gui.MenuOption(1, "Character Stats");
             Gui.MenuOption(-1, "Exit");
 
             int input = Gui.GetInputInt("Input: ");

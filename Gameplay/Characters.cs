@@ -46,10 +46,22 @@ namespace ConsoleRPG
 
             this.name = name;
         }
+
+        public String Name()
+        {
+            return this.name;
+        }
         
         public override String ToString()
         {
-            return this.name;
+            String str = 
+                $"Name:\t\t\t{this.name}\n" +
+                $"Level:\t\t\t{this.level}\n" +
+                $"Exp:\t\t\t{this.exp}/{this.expMax}\n" +
+                $"Attribute Points:\t{this.attributePoints}\n" +
+                $"Strength:\t\t{this.strength}\n";
+
+            return str;
         }
     }
 }

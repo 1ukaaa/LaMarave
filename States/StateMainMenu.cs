@@ -34,6 +34,8 @@ namespace ConsoleRPG
 
         override public void Update()
         {
+            if(this.activeCharacter != null)
+                Gui.Announcement($"Active Character: {this.activeCharacter!.Name()}"+ "\n");
             Gui.MenuTitle("Main Menu");
             Gui.MenuOption(1, "New Game");
             Gui.MenuOption(2, "Character Creator");
@@ -49,7 +51,7 @@ namespace ConsoleRPG
         {
             if (this.activeCharacter != null)
             {
-                // this.states.Push(new StateGame(this.states, this.activeCharacter));
+                this.states.Push(new StateGame(this.states, this.activeCharacter));
             }
             else
             {
