@@ -5,10 +5,12 @@ namespace ConsoleRPG
     class StateMainMenu : State
     {
         protected ArrayList characterList;
+        protected Character? activeCharacter;
 
         public StateMainMenu(Stack<State> states, ArrayList character_List) : base(states)
         {
             this.characterList = character_List;
+            this.activeCharacter = null;
         }
 
         public void ProcessInput(int input)
@@ -45,15 +47,37 @@ namespace ConsoleRPG
 
         public void StartNewGame()
         {
-            this.states.Push(new StateGame(this.states, this.characterList));
+            if (this.activeCharacter != null)
+            {
+                // this.states.Push(new StateGame(this.states, this.activeCharacter));
+            }
+            else
+            {
+               Gui.Announcement("There is no active character selected! Please select a character first. ");
+            }
         }
 
         public void SelectCharacter()
         {
-            foreach (Character character in this.characterList)
+            for (int i = 0; i < this.characterList.Count; i++)
             {
-                Console.WriteLine(character.ToString());
+                Console.WriteLine(i + ": " + characterList[i]!.ToString());
             }
+
+            int choice = Gui.GetInputInt("Select Character: ");
+
+            try
+            {
+                this.activeCharacter = (Character)this.characterList[choice]!;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            if (this.activeCharacter != null)
+                Gui.Announcement($"Character {this.activeCharacter!.ToString()} is selected.");
+            
         }
     
     }

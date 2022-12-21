@@ -13,9 +13,6 @@ namespace ConsoleRPG
             String? name = "";
             Gui.GetInput("Character Name: ");
             name = Console.ReadLine();
-            this.characterList.Add(new Character("UnderTaker"));
-            this.characterList.Add(new Character("John Cena"));
-            this.characterList.Add(new Character("The Rock"));
             this.characterList.Add(new Character(name!));
             Gui.Announcement("Character Created");
         }

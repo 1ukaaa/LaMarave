@@ -45,9 +45,9 @@ namespace ConsoleRPG
 
         public static int GetInputInt(String message)
         {
-            int input = -10;
+            Nullable<int> input = null;
 
-            while (input == -10)
+            while (input == null)
             {
                 try
                 {
@@ -57,12 +57,11 @@ namespace ConsoleRPG
                 }
                 catch (Exception e)
                 {
-                    input = -10;
                     Console.WriteLine(e.Message);
                 }
             }
 
-            return input;
+            return input.Value;
         }
     }
 }
