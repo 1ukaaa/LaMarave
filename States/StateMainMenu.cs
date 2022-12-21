@@ -16,13 +16,13 @@ namespace ConsoleRPG
             switch (input)
             {
                 case 1:
-                    this.states.Push(new StateGame(this.states, this.characterList));
+                    this.StartNewGame();
                     break;
                 case 2:
                     this.states.Push(new StateCharacterCreator(this.states, this.characterList));
                     break;
                 case 3:
-                    Console.WriteLine(this.characterList.Count);
+                    this.SelectCharacter();
                     break;
                 case -1:
                     this.endGame = true;
@@ -35,14 +35,25 @@ namespace ConsoleRPG
             Gui.MenuTitle("Main Menu");
             Gui.MenuOption(1, "New Game");
             Gui.MenuOption(2, "Character Creator");
-            Gui.MenuOption(3, "List Characters");
+            Gui.MenuOption(3, "Select Character");
             Gui.MenuOption(-1, "Exit");
 
-
-            Console.WriteLine("Write a number (Main Menu): ");
-            int input = Convert.ToInt32(Console.ReadLine());
+            int input = Gui.GetInputInt("Input: ");
 
             this.ProcessInput(input);
+        }
+
+        public void StartNewGame()
+        {
+            this.states.Push(new StateGame(this.states, this.characterList));
+        }
+
+        public void SelectCharacter()
+        {
+            foreach (Character character in this.characterList)
+            {
+                Console.WriteLine(character.ToString());
+            }
         }
     
     }

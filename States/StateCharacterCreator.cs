@@ -46,9 +46,7 @@ namespace ConsoleRPG
             Gui.MenuOption(3, "Delete Character");
             Gui.MenuOption(-1, "Exit");
 
-
-            Console.WriteLine("Write a number (Main Menu): ");
-            int input = Convert.ToInt32(Console.ReadLine());
+            int input = Gui.GetInputInt("Input: ");
 
             this.ProcessInput(input);
 

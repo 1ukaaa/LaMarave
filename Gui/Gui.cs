@@ -42,5 +42,27 @@ namespace ConsoleRPG
 
             Console.Write(str);
         }
+
+        public static int GetInputInt(String message)
+        {
+            int input = -10;
+
+            while (input == -10)
+            {
+                try
+                {
+                    Gui.GetInput(message);
+
+                    input = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    input = -10;
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+            return input;
+        }
     }
 }
