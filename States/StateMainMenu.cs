@@ -21,7 +21,7 @@ namespace ConsoleRPG
                     this.StartNewGame();
                     break;
                 case 2:
-                    this.states.Push(new StateCharacterCreator(this.states, this.characterList));
+                    this.CreateCharacter();
                     break;
                 case 3:
                     this.SelectCharacter();
@@ -35,12 +35,12 @@ namespace ConsoleRPG
         override public void Update()
         {
             if(this.activeCharacter != null)
-                Gui.Announcement($"Active Character: {this.activeCharacter!.Name()}"+ "\n");
+                Gui.Announcement($"Active Character: {this.activeCharacter!.NameCharacter()}"+ "\n");
             Gui.MenuTitle("Main Menu");
-            Gui.MenuOption(1, "New Game");
-            Gui.MenuOption(2, "Character Creator");
-            Gui.MenuOption(3, "Select Character");
-            Gui.MenuOption(-1, "Exit");
+            Gui.MenuOption(1, "Commencer une nouvelle partie");
+            Gui.MenuOption(2, "Nouveau Personnage");
+            Gui.MenuOption(3, "Selectionne un personnage");
+            Gui.MenuOption(-1, "Quitter");
 
             int input = Gui.GetInputInt("Input: ");
 
@@ -55,18 +55,29 @@ namespace ConsoleRPG
             }
             else
             {
-               Gui.Announcement("There is no active character selected! Please select a character first. ");
+                Gui.Announcement("Il n'y a pas de personnage actif selectionné! Veuillez selectionner un personnage d'abord. ");
             }
+        }
+
+        public void CreateCharacter()
+        {
+            String? name = "";
+
+            Gui.GetInput("Nom du personnage: ");
+            name = Console.ReadLine();
+            this.characterList.Add(new Character(name!));
+            Gui.Announcement("Personnage créé");
         }
 
         public void SelectCharacter()
         {
             for (int i = 0; i < this.characterList.Count; i++)
             {
-                Console.WriteLine(i + ": " + characterList[i]!.ToString());
+                Gui.Announcement($"Numéro: {i} ");
+                Console.WriteLine(characterList[i]!.ToString());
             }
 
-            int choice = Gui.GetInputInt("Select Character: ");
+            int choice = Gui.GetInputInt("Sélectionne un personnage (numéro): ");
 
             try
             {
@@ -78,7 +89,7 @@ namespace ConsoleRPG
             }
 
             if (this.activeCharacter != null)
-                Gui.Announcement($"Character {this.activeCharacter!.ToString()} is selected.");
+                 Gui.Announcement($"Personnage {this.activeCharacter!.ToString()} est selectionné.");
             
         }
     

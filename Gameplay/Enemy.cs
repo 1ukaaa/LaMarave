@@ -1,6 +1,6 @@
 namespace ConsoleRPG
 {
-    class Character
+    class Enemy
     {
         public string Name { get; set; }
         public int Level { get; set; }
@@ -9,17 +9,17 @@ namespace ConsoleRPG
         public int Strength { get; set; }
         public int Armor { get; set; }
 
-        public Character(string name)
+        public Enemy(string name)
         {
             Name = name;
             Level = 1;
             MaxHealth = 30;
             CurrentHealth = 30;
-            Strength = 15;
-            Armor = 15;
+            Strength = 5;
+            Armor = 0;
         }
 
-        public String NameCharacter()
+        public String NameEnemy()
         {
             return this.Name;
         }
