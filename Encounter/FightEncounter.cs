@@ -4,8 +4,9 @@ namespace ConsoleRPG
     {
         public void Execute(Character character)
         {
-            Console.WriteLine("Vous rencontrez un mob hostile !");
-            Enemy enemy = new Enemy("Ennemi");
+            Gui.Announcement("Vous rencontrez un mob hostile !");
+            Character enemy = new Character("Ennemi");
+            enemy.Strength = 20;
             // Boucle tant que le personnage et le enemy sont tous les deux en vie
             while (character.CurrentHealth > 0 && enemy.CurrentHealth > 0)
             {
@@ -31,7 +32,7 @@ namespace ConsoleRPG
             // Si le personnage est toujours en vie, il a gagné
             if (character.CurrentHealth > 0)
             {
-                Console.WriteLine("Félicitations, vous avez gagné la partie!");
+                Gui.MessageWin("Félicitations, vous avez gagné la partie!");
             }
         }
     }

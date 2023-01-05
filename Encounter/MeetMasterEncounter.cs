@@ -4,7 +4,7 @@ namespace ConsoleRPG
     {
         public void Execute(Character character)
         {
-            Console.WriteLine("Vous rencontrez le maître d'armes !");
+            Gui.Announcement("Vous rencontrez le maître d'armes !");
             // Augmente le niveau du personnage de 1
             character.Level++;
             // Restaure 10% des PV du personnage (arrondi à l'entier le plus proche)

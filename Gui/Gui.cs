@@ -36,6 +36,24 @@ namespace ConsoleRPG
             Console.ResetColor();
         }
 
+        public static void MessageWin(String str)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            str = String.Format("=== {0}\n", str);
+
+            Console.Write(str);
+            Console.ResetColor();
+        }
+
+        public static void MessageLose(String str)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            str = String.Format("=== {0}\n", str);
+
+            Console.Write(str);
+            Console.ResetColor();
+        }
+
         public static void GetInput(String str)
         {
             str = String.Format(" - {0} :", str);
