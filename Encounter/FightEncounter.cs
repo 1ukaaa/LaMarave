@@ -7,6 +7,7 @@ namespace ConsoleRPG
             Gui.Announcement("Vous rencontrez un mob hostile !");
             Character enemy = new Character("Ennemi");
             enemy.Strength = 20;
+            enemy.Armor = 5;
             // Boucle tant que le joueur et l'ennemi sont tous les deux en vie
             while (character.CurrentHealth > 0 && enemy.CurrentHealth > 0)
             {

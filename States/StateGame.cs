@@ -76,7 +76,7 @@ namespace ConsoleRPG
             // Si le joueur est vaincu, la partie se termine
             if (this.character.CurrentHealth <= 0)
             {
-                Console.WriteLine("Désolé, vous avez été vaincu et la partie est terminée.");
+                Gui.MessageLose("Désolé, vous avez été vaincu et la partie est terminée.");
                 this.endGame = true;
                 return;
             }
@@ -85,7 +85,7 @@ namespace ConsoleRPG
 
             if (turn == 20)
             {
-                Console.WriteLine("La partie est terminée, vous avez atteint le nombre maximum de tours.");
+                Gui.MessageWin("La partie est terminée, vous avez atteint le nombre maximum de tours.");
                 this.endGame = true;
                 return;
             }

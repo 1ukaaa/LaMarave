@@ -78,7 +78,7 @@ namespace ConsoleRPG
                 Console.WriteLine("1 - PV Max");
                 Console.WriteLine("2 - Armure");
                 Console.WriteLine("3 - Force");
-                Console.Write("Input: ");
+                Console.Write("Entrée : ");
                 int input = int.Parse(Console.ReadLine()!);
 
                 int pointsToAdd;
