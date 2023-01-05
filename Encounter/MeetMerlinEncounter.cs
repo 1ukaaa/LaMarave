@@ -5,7 +5,7 @@ namespace ConsoleRPG
         public void Execute(Character character)
         {
             Gui.Announcement("Vous rencontrez Merlin !");
-            // Restaure les PV Max du personnage
+            // Restaure les PV Max du joueur
             character.CurrentHealth = character.MaxHealth;
             Console.WriteLine("Merlin vous a restauré vos PV Max !");
             Console.WriteLine($"Vous avez {character.CurrentHealth} points de vie.");

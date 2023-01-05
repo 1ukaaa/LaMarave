@@ -53,7 +53,7 @@ namespace ConsoleRPG
                     this.states.Pop();
                 }        
             }
-            Console.WriteLine("Ending game...");
+            Console.WriteLine("Fin du jeu...");
         }
     }
 }

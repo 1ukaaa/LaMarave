@@ -5,9 +5,9 @@ namespace ConsoleRPG
         public void Execute(Character character)
         {
             Gui.Announcement("Vous rencontrez le maître d'armes !");
-            // Augmente le niveau du personnage de 1
+            // Augmente le niveau du joueur de 1
             character.Level++;
-            // Restaure 10% des PV du personnage (arrondi à l'entier le plus proche)
+            // Restaure 10% des PV du joueur (arrondi à l'entier le plus proche)
             character.CurrentHealth += (int)(character.MaxHealth * 0.1f);
             // S'assure que les PV actuels ne dépassent pas les PV Max
             character.CurrentHealth = Math.Min(character.CurrentHealth, character.MaxHealth);

@@ -38,7 +38,7 @@ namespace ConsoleRPG
             Gui.MenuOption(3, "Clear console");
             Gui.MenuOption(-1, "Quitter le jeu");
 
-            int input = Gui.GetInputInt("Input: ");
+            int input = Gui.GetInputInt("Entrée : ");
 
             this.ProcessInput(input);
 
@@ -73,7 +73,7 @@ namespace ConsoleRPG
                 }
             }
 
-            // Si le personnage est vaincu, la partie se termine
+            // Si le joueur est vaincu, la partie se termine
             if (this.character.CurrentHealth <= 0)
             {
                 Console.WriteLine("Désolé, vous avez été vaincu et la partie est terminée.");

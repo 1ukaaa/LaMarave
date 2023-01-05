@@ -27,12 +27,12 @@ namespace ConsoleRPG
         public override String ToString()
         {
             String str =
-                $"Name:\t\t\t{this.Name}\n" +
+                $"Nom:\t\t\t{this.Name}\n" +
                 $"Level:\t\t\t{this.Level}\n" +
-                $"Max Health:\t\t{this.MaxHealth}\n" +
-                $"Current Health:\t\t{this.CurrentHealth}\n" +
-                $"Strength:\t\t{this.Strength}\n" +
-                $"Armor:\t\t\t{this.Armor}\n";
+                $"Vie Max:\t\t{this.MaxHealth}\n" +
+                $"Vie Actuelle:\t\t{this.CurrentHealth}\n" +
+                $"Force:\t\t\t{this.Strength}\n" +
+                $"Armure:\t\t\t{this.Armor}\n";
 
             return str;
         }
