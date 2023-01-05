@@ -15,7 +15,7 @@ namespace ConsoleRPG
             Level = 1;
             MaxHealth = 30;
             CurrentHealth = 30;
-            Strength = 5;
+            Strength = 20;
             Armor = 0;
         }
 
